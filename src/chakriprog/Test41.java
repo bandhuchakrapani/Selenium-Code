@@ -17,7 +17,7 @@ public class Test41 {
 		// convert text into voice
 		System.setProperty("mbrola.base", "D:\\softwaretesting\\mbr301d");
 	    VoiceManager vm=VoiceManager.getInstance();
-	    Voice v=vm.getVoice("mbrola_us1"); // kevin 16
+	    Voice v=vm.getVoice("kevin16"); // kevin 16
         v.allocate();
         v.speak(x);
         v.deallocate();

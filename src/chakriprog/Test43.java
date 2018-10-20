@@ -1,30 +1,46 @@
 package chakriprog;
 
-import java.util.concurrent.TimeUnit;
+import java.util.Scanner;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
+
 
 public class Test43 {
 
 	public static void main(String[] args) 
 	{
-		ChromeOptions op= new ChromeOptions();
-		op.addArguments("--disable-notifications");
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter your text\n");
+		String x=sc.nextLine();
 		System.setProperty("webdriver.chrome.driver", "D:\\softwaretesting\\chromedriver.exe");
-		ChromeDriver chakri=new ChromeDriver(op);	
-		chakri.get("https://www.redbus.in/");
+		ChromeOptions oo=new ChromeOptions();
+		oo.addArguments("--use-fake-ui-for-media-stream=1");
+		ChromeDriver chakri=new ChromeDriver(oo);	
+		// launch site
+		chakri.get("https://www.google.com");
 		chakri.manage().window().maximize();
 		// wait for page ready
-		WebDriverWait w=new WebDriverWait(chakri,10);
-		w.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='rb-calendar_onward_cal']//td[@class='monthTitle'][contains(text(),'Oct 2018')]")));
-		//td[contains(text(),'Nov 2018')]
-	
+		WebDriverWait w=new WebDriverWait(chakri,40);
+		w.until(ExpectedConditions.visibilityOfElementLocated(By.name("q")));
+		// click on mic icon
+		chakri.findElement(By.id("gsri_ok0")).click();
+		w.until(ExpectedConditions.visibilityOfElementLocated(By.id("spchb")));
+		// send voice
+		System.setProperty("mbrola.base","D:\\\\softwaretesting\\\\mbr301d");
+		VoiceManager vm=VoiceManager.getInstance();
+		Voice v=vm.getVoice("mbrola_us1");
+		v.allocate();
+		v.speak(x);
+		v.deallocate();
 		//close site
+		chakri.close();
 
 	}
 
