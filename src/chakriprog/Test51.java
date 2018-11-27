@@ -20,7 +20,7 @@ public class Test51 {
 		ChromeDriver chakri=new ChromeDriver();	
 		chakri.get("https://www.google.co.in");
 		chakri.manage().window().maximize();
-		ExtentReports er=new ExtentReports("path.html,true");
+		ExtentReports er=new ExtentReports("google.html",true);
 		ExtentTest et=er.startTest("Title for test");
 		//Take current date and time as filename
 		Date d=new Date();
@@ -30,9 +30,17 @@ public class Test51 {
 		File src=chakri.getScreenshotAs(OutputType.FILE);
 		File dest=new File(fname);
 		FileHandler.copy(src, dest);
+		if(chakri.getTitle().equals("google"))
+		{
 		// attach to extent reports html file
 		et.log(LogStatus.FAIL,"Title Test failed"+ et.addScreenCapture(fname));
-		
+		}
+		else 
+		{
+			et.log(LogStatus.PASS,"TestCase passed");
+			er.flush();
+			chakri.close();
+			}
 		
 	}
 

@@ -17,7 +17,7 @@ public class Test29 {
 		chakri.get("http://www.google.co.in");
 		Thread.sleep(5000);
 		// Fill text box with data to get cache/auto-complete
-		chakri.findElement(By.name("q")).sendKeys("steve jobs");
+		chakri.findElement(By.name("q")).sendKeys("cricbuzz");
 		Thread.sleep(5000);
 		// Get count items in cache
 		List<WebElement> l=chakri.findElements(By.xpath("//*[@role='listbox']/li"));
@@ -29,7 +29,7 @@ public class Test29 {
 		{
 			a.sendKeys(Keys.DOWN).build().perform();
 			String x=chakri.findElement(By.name("q")).getAttribute("value");
-			if(x.equalsIgnoreCase("steve jobs book"))
+			if(x.equalsIgnoreCase("cricbuzz asia cup"))
 			{
 				a.sendKeys(Keys.ENTER).build().perform();
 				flag=1;

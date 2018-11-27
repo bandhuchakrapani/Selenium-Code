@@ -1,0 +1,5 @@
+8801874959,valid,9701678513,valid
+8801874955,invalid,9701678513,valid
+88018,valid,9701678,invalid
+,invalid,9701678513,valid
+8801874959,valid,,invalid

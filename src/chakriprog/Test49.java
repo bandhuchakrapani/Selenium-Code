@@ -27,6 +27,7 @@ public class Test49 {
 		//skip ad(sikuli)
 		Thread.sleep(10000);
         Screen s=new Screen();
+       
         if(s.exists("skipad.png")!=null)
         {
         	s.click("skipad.png");
@@ -37,7 +38,7 @@ public class Test49 {
         
         // play video(sikulix)
         Thread.sleep(5000);
-        s.mouseMove(200,200);//pointer on video body
+        s.mouseMove("play.png");//pointer on video body
         s.click("play.png");
         Thread.sleep(5000);
          //decrease volume
@@ -53,8 +54,7 @@ public class Test49 {
         Location l2=new Location(x-50,y);
         s.dragDrop(e, l2);
         Thread.sleep(5000);
-        
-        s.mouseMove(200,200); //pointer on video body
+        s.mouseMove("maximize.png"); //pointer on video body
         s.click("maximize.png"); 
         // close site
         chakri.close();

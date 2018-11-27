@@ -18,7 +18,7 @@ public class Test8
 		//Login
 		chakri.findElement(By.name("email")).sendKeys("chakrapanibandhu@yahoo.com");
 		Thread.sleep(5000);
-		chakri.findElement(By.name("pass")).sendKeys("chakri");
+		chakri.findElement(By.name("pass")).sendKeys("chakribandhu");
 		chakri.findElement(By.xpath("(//*[@aria-label='Log In'])")).click();
 		Thread.sleep(5000);
 		chakri.findElement(By.xpath("//*[contains(@data-tooltip-content,'Messages')]")).click();
